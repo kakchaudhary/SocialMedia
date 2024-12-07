@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.SocialMedia.Models.Post;
 import com.example.SocialMedia.Services.PostService;
 import com.example.SocialMedia.Services.UserService;
+import com.example.SocialMedia.Utils.TimeUtils;
 
 public class SocialMediaController {
 	private final UserService userService;
@@ -43,7 +44,7 @@ public class SocialMediaController {
 				System.out.println("User ID: " + post.getUserId());
 				System.out.println("Post ID: " + post.getPostId());
 				System.out.println("Content: " + post.getContent());
-				System.out.println("Timestamp: " + post.getTimestamp());
+				System.out.println("Timestamp: " + TimeUtils.getRelativeTime(post.getTimestamp()));
 				System.out.println();
 			}
 		} catch (IllegalArgumentException e) {
