@@ -21,4 +21,14 @@ public class SocialMediaController {
 		String result = postService.uploadPost(userId, content);
 		System.out.println(result);
 	}
+	
+    public void handleFollowUser(int followerId, int followeeId) {
+        String result = userService.followUser(followerId, followeeId);
+        System.out.println(result);
+    }
+
+    public void handleUnfollowUser(int followerId, int followeeId) {
+        String result = userService.unfollowUser(followerId, followeeId);
+        System.out.println(result);
+    }
 }

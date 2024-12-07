@@ -22,5 +22,8 @@ public class Main {
 		controller.handleUploadPost(2, "Hello! I'm Hemant."); // op: Upload Successful with post id: 002
 		controller.handleUploadPost(1, "Another post by Akash."); // op: Upload Successful with post id: 003
 
+		controller.handleFollowUser(2, 1); // op: Followed Akash!!
+		controller.handleUnfollowUser(2, 1); // op: Unfollowed Akash!!
+
 	}
 }
