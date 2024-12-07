@@ -1,6 +1,7 @@
 package com.example.SocialMedia.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,5 +20,9 @@ public class PostRepository {
 
     public Post getPostById(int postId) {
         return posts.get(postId);
+    }
+    
+    public Collection<Post> getAllPosts() {
+        return posts.values();
     }
 }

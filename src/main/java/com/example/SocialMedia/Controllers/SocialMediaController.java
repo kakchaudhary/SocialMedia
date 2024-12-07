@@ -1,5 +1,8 @@
 package com.example.SocialMedia.Controllers;
 
+import java.util.List;
+
+import com.example.SocialMedia.Models.Post;
 import com.example.SocialMedia.Services.PostService;
 import com.example.SocialMedia.Services.UserService;
 
@@ -30,5 +33,21 @@ public class SocialMediaController {
     public void handleUnfollowUser(int followerId, int followeeId) {
         String result = userService.unfollowUser(followerId, followeeId);
         System.out.println(result);
+    }
+    
+    public void handleShowFeed(int userId) {
+        try {
+            List<Post> feed = postService.getFeedForUser(userId);
+            System.out.println("Feed for User ID: " + userId);
+            for (Post post : feed) {
+                System.out.println("User ID: " + post.getUserId());
+                System.out.println("Post ID: " + post.getPostId());
+                System.out.println("Content: " + post.getContent());
+                System.out.println("Timestamp: " + post.getTimestamp());
+                System.out.println();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
