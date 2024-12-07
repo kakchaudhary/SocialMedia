@@ -24,30 +24,40 @@ public class SocialMediaController {
 		String result = postService.uploadPost(userId, content);
 		System.out.println(result);
 	}
-	
-    public void handleFollowUser(int followerId, int followeeId) {
-        String result = userService.followUser(followerId, followeeId);
-        System.out.println(result);
-    }
 
-    public void handleUnfollowUser(int followerId, int followeeId) {
-        String result = userService.unfollowUser(followerId, followeeId);
-        System.out.println(result);
-    }
-    
-    public void handleShowFeed(int userId) {
-        try {
-            List<Post> feed = postService.getFeedForUser(userId);
-            System.out.println("Feed for User ID: " + userId);
-            for (Post post : feed) {
-                System.out.println("User ID: " + post.getUserId());
-                System.out.println("Post ID: " + post.getPostId());
-                System.out.println("Content: " + post.getContent());
-                System.out.println("Timestamp: " + post.getTimestamp());
-                System.out.println();
-            }
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+	public void handleFollowUser(int followerId, int followeeId) {
+		String result = userService.followUser(followerId, followeeId);
+		System.out.println(result);
+	}
+
+	public void handleUnfollowUser(int followerId, int followeeId) {
+		String result = userService.unfollowUser(followerId, followeeId);
+		System.out.println(result);
+	}
+
+	public void handleShowFeed(int userId) {
+		try {
+			List<Post> feed = postService.getFeedForUser(userId);
+			System.out.println("Feed for User ID: " + userId);
+			for (Post post : feed) {
+				System.out.println("User ID: " + post.getUserId());
+				System.out.println("Post ID: " + post.getPostId());
+				System.out.println("Content: " + post.getContent());
+				System.out.println("Timestamp: " + post.getTimestamp());
+				System.out.println();
+			}
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public void handleLikePost(int userId, int postId) {
+		String result = postService.likePost(userId, postId);
+		System.out.println(result);
+	}
+
+	public void handleDislikePost(int userId, int postId) {
+		String result = postService.dislikePost(userId, postId);
+		System.out.println(result);
+	}
 }

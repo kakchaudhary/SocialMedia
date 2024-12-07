@@ -51,5 +51,23 @@ public class PostService {
         followedPosts.addAll(nonFollowedPosts);
         return followedPosts;
     }
+    
+    public String likePost(int userId, int postId) {
+        Post post = postRepository.getPostById(postId);
+        if (post == null) {
+            return "Post not found!";
+        }
+        post.likePost();
+        return "Post Liked!!";
+    }
+
+    public String dislikePost(int userId, int postId) {
+        Post post = postRepository.getPostById(postId);
+        if (post == null) {
+            return "Post not found!";
+        }
+        post.dislikePost();
+        return "Post Disliked!!";
+    }
 }
 
